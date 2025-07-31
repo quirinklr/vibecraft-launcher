@@ -6,10 +6,9 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Verzeichnis für Abhängigkeiten
-# Dies ist das Wichtigste, was ignoriert werden muss.
 node_modules/
 
-# Lockfiles (je nach Präferenz, aber es wird empfohlen, sie beizubehalten)
+# Lockfiles
 package-lock.json
 yarn.lock
 
@@ -22,9 +21,6 @@ release/
 *.zip
 *.dmg
 *.AppImage
-
-# Verzeichnis für Benutzerdaten von Electron (Laufzeit, nicht Teil des Projekts)
-# Dies wird bereits systemweit unter %APPDATA% gespeichert und ist nicht im Repo.
 
 # # # Betriebssystem-Dateien # # #
 # macOS
