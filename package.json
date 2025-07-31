@@ -1,6 +1,6 @@
 {
   "name": "vibecraft-launcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ein moderner Launcher für Vibecraft",
   "main": "src/main.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "build": {
     "appId": "com.vibecraft.launcher",
     "productName": "Vibecraft Launcher",
+    "artifactName": "${productName} Setup ${version}.${ext}",
     "win": {
       "target": "nsis",
       "icon": "src/assets/icon.ico"
