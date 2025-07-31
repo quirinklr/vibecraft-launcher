@@ -4,15 +4,38 @@
   "description": "Ein moderner Launcher für Vibecraft",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Quirin",
+  "license": "MIT",
   "devDependencies": {
-    "axios": "^1.7.2",
     "adm-zip": "^0.5.14",
+    "axios": "^1.7.2",
     "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
     "showdown": "^2.1.0"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.2",
+    "electron-updater": "^6.2.1"
+  },
+  "build": {
+    "appId": "com.vibecraft.launcher",
+    "productName": "Vibecraft Launcher",
+    "files": [
+      "src*",
+      "node_modules*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/icon.ico"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "quirinklr",
+      "repo": "vibecraft-launcher"
+    }
   }
 }
