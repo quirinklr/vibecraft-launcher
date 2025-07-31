@@ -1,18 +1,6 @@
 # Vibecraft Launcher
 
-<div align="center">
-  <a href="https://github.com/quirinklr/vibecraft-launcher/releases/download/1.0.0/Vibecraft.Launcher.Setup.1.0.0.exe">
-    <br/>
-    <br/>
-    <strong>
-      <h1>➡️ Download Latest Version for Windows ⬅️</h1>
-    </strong>
-  </a>
-</div>
-
----
-
-This is the official cross-platform launcher for the [Vibecraft Engine](https://github.com/quirinklr/minecraft-vibe). It is built with modern web technologies using **Electron** and **Node.js** to provide a seamless and user-friendly experience for downloading, managing, and playing all available versions of the game.
+This is the official cross-platform launcher for the [Vibecraft Engine](https://github.com/quirinklr/vibecraft). It is built with modern web technologies using **Electron** and **Node.js** to provide a seamless and user-friendly experience for downloading, managing, and playing all available versions of the game.
 
 ## ✨ Features
 
@@ -52,7 +40,7 @@ This launcher is an Electron application. To run it from the source code, follow
 
 This launcher is designed to run the **Vibecraft Engine**. For more details on the game itself, please visit the main project repository:
 
-➡️ **[Vibecraft Engine on GitHub](https://github.com/quirinklr/minecraft-vibe)**
+➡️ **[Vibecraft Engine on GitHub](https://github.com/quirinklr/vibecraft)**
 
 ## 📄 License
 
