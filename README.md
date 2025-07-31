@@ -22,7 +22,7 @@ This launcher is an Electron application. To run it from the source code, follow
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/vibecraft-launcher.git
+    git clone https://github.com/quirinklr/vibecraft-launcher.git
     cd vibecraft-launcher
     ```
 
