@@ -1,16 +1,28 @@
 # Vibecraft Launcher
 
-This is the official cross-platform launcher for the [Vibecraft Engine](https://github.com/quirinklr/vibecraft). It is built with modern web technologies using **Electron** and **Node.js** to provide a seamless and user-friendly experience for downloading, managing, and playing all available versions of the game.
+<div align="center">
+  <a href="https://github.com/quirinklr/vibecraft-launcher/releases/download/1.0.0/Vibecraft.Launcher.Setup.1.0.0.exe">
+    <br/>
+    <br/>
+    <strong>
+      <h1>➡️ Download Latest Version for Windows ⬅️</h1>
+    </strong>
+  </a>
+</div>
+
+---
+
+This is the official cross-platform launcher for the [Vibecraft Engine](https://github.com/quirinklr/minecraft-vibe). It is built with modern web technologies using **Electron** and **Node.js** to provide a seamless and user-friendly experience for downloading, managing, and playing all available versions of the game.
 
 ## ✨ Features
 
-*   **Automatic Release Fetching:** Pulls all available game versions directly from the official GitHub Releases page.
+*   **Seamless Auto-Updates:** The launcher automatically and silently updates itself to the latest version upon start.
+*   **Automatic Game Release Fetching:** Pulls all available game versions directly from the official GitHub Releases page.
 *   **Version Management:** Easily select and play any version, from the latest build to older, nostalgic releases. The newest version is always clearly marked with a "LATEST" tag.
-*   **Automatic Updates:** Intelligently checks if an installed version has a new update on GitHub before every launch and downloads it if necessary.
 *   **Embedded Release Notes:** Displays the official, fully formatted release notes (including images) for each version directly within the launcher.
-*   **Modern, Dark-Themed UI:** A sleek, custom-designed user interface for a great user experience, including a modern, dark-themed scrollbar.
+*   **Modern, Dark-Themed UI:** A sleek, custom-designed user interface for a great user experience.
 
-## 🚀 Getting Started (Running from Source)
+## 🚀 Getting Started (for Developers)
 
 This launcher is an Electron application. To run it from the source code, follow these steps:
 
@@ -38,9 +50,9 @@ This launcher is an Electron application. To run it from the source code, follow
 
 ## 🎮 The Game Engine
 
-This launcher is designed to run the **Vibecraft Engine**, a high-performance voxel engine built from scratch in C++20 with Vulkan. For more details on the game itself, please visit the main project repository:
+This launcher is designed to run the **Vibecraft Engine**. For more details on the game itself, please visit the main project repository:
 
-➡️ **[Vibecraft Engine on GitHub](https://github.com/quirinklr/vibecraft)**
+➡️ **[Vibecraft Engine on GitHub](https://github.com/quirinklr/minecraft-vibe)**
 
 ## 📄 License
 
