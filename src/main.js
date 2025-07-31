@@ -5,9 +5,9 @@ const fs = require("fs");
 const AdmZip = require("adm-zip");
 const { spawn } = require("child_process");
 const { autoUpdater } = require("electron-updater");
-const { version } = require("../package.json");
-const log = require("electron-log");
 
+const log = require("electron-log");
+log.transports.file.resolvePathFn = () => path.join(app.getPath("userData"), "logs/main.log");
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info";
 
@@ -37,12 +37,6 @@ function createWindow() {
     title: "Vibecraft Launcher",
     autoHideMenuBar: true,
   });
-
-  mainWindow.once("ready-to-show", () => {
-    setTimeout(() => {
-      if (mainWindow) mainWindow.show();
-    }, 50);
-  });
 }
 
 ipcMain.once("renderer-is-ready", () => {
@@ -52,21 +46,30 @@ ipcMain.once("renderer-is-ready", () => {
 });
 
 ipcMain.handle("get-app-version", () => {
-  return version;
+  return app.getVersion();
 });
 
 autoUpdater.on("update-available", () => {
+  if (!mainWindow.isVisible()) mainWindow.show();
   mainWindow.loadFile(path.join(__dirname, "updating.html"));
 });
+
 autoUpdater.on("update-not-available", () => {
   launchApp();
 });
+
 autoUpdater.on("update-downloaded", () => {
   autoUpdater.quitAndInstall();
 });
+
 autoUpdater.on("error", (err) => {
-  log.error(err);
-  dialog.showErrorBox("Update Error", "Could not update the launcher.\n" + err.message);
+  if (err.message.includes("No published versions on GitHub")) {
+    log.info("Keine Releases auf GitHub gefunden. Starte die App normal.");
+  } else {
+    log.error(err);
+    dialog.showErrorBox("Update Error", "Could not check for updates.\n" + err.message);
+  }
+
   launchApp();
 });
 
