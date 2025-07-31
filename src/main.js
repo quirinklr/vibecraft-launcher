@@ -5,12 +5,13 @@ const fs = require("fs");
 const AdmZip = require("adm-zip");
 const { spawn } = require("child_process");
 const { autoUpdater } = require("electron-updater");
-
+const { version } = require("../package.json");
 const log = require("electron-log");
+
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info";
 
-const GITHUB_API_URL = "https://api.github.com/repos/quirinklr/minecraft-vibe/releases";
+const GITHUB_API_URL = "https://api.github.com/repos/quirinklr/vibecraft/releases";
 const GAME_INSTALL_DIR = path.join(app.getPath("userData"), "versions");
 
 let mainWindow;
@@ -39,23 +40,30 @@ function createWindow() {
 
   mainWindow.once("ready-to-show", () => {
     setTimeout(() => {
-      mainWindow.show();
+      if (mainWindow) mainWindow.show();
     }, 50);
   });
 }
 
+ipcMain.once("renderer-is-ready", () => {
+  if (mainWindow) {
+    mainWindow.show();
+  }
+});
+
+ipcMain.handle("get-app-version", () => {
+  return version;
+});
+
 autoUpdater.on("update-available", () => {
   mainWindow.loadFile(path.join(__dirname, "updating.html"));
 });
-
 autoUpdater.on("update-not-available", () => {
   launchApp();
 });
-
 autoUpdater.on("update-downloaded", () => {
   autoUpdater.quitAndInstall();
 });
-
 autoUpdater.on("error", (err) => {
   log.error(err);
   dialog.showErrorBox("Update Error", "Could not update the launcher.\n" + err.message);
@@ -64,14 +72,12 @@ autoUpdater.on("error", (err) => {
 
 app.whenReady().then(() => {
   createWindow();
-
   if (app.isPackaged) {
     autoUpdater.checkForUpdates();
   } else {
     log.info("Entwicklungsmodus: Update-Check wird übersprungen.");
     launchApp();
   }
-
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -86,7 +92,6 @@ app.on("window-all-closed", () => {
 });
 
 let gameProcess = null;
-
 ipcMain.handle("get-releases", async () => {
   try {
     const response = await axios.get(GITHUB_API_URL, { timeout: 10000 });

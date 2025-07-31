@@ -1,4 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const appVersion = await window.electronAPI.getAppVersion();
+    const titleElement = document.querySelector(".sidebar .title");
+    if (titleElement) {
+      titleElement.textContent = `Release ${appVersion}`;
+    }
+  } catch (error) {
+    console.error("Fehler beim Abrufen der App-Version:", error);
+  }
+
   const converter = new showdown.Converter({
     ghCompatibleHeaderId: true,
     simpleLineBreaks: true,
@@ -22,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!result.success || !result.data || result.data.length === 0) {
       releaseList.innerHTML = `<p class="error-message">Could not fetch releases.<br><small>${result.error || ""}</small></p>`;
+      window.electronAPI.signalReady();
       return;
     }
 
@@ -46,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (allReleases.length > 0) {
       selectRelease(allReleases[0]);
     }
+
+    window.electronAPI.signalReady();
   }
 
   function selectRelease(release) {
@@ -56,12 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const markdownBody = `# ${release.name}\n\n${release.body}`;
-    const generatedHtml = converter.makeHtml(markdownBody);
-
-    console.log("--- Generated HTML for Release Body ---");
-    console.log(generatedHtml);
-
-    releaseDetails.innerHTML = generatedHtml;
+    releaseDetails.innerHTML = converter.makeHtml(markdownBody);
 
     releaseDetails.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", (e) => {
