@@ -1,0 +1,18 @@
+{
+  "name": "vibecraft-launcher",
+  "version": "1.0.0",
+  "description": "Ein moderner Launcher für Vibecraft",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^1.7.2",
+    "adm-zip": "^0.5.14",
+    "electron": "^31.0.2",
+    "showdown": "^2.1.0"
+  }
+}

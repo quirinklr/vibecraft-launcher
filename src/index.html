@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ### FINALE KORREKTUR: CSP um alle relevanten GitHub Asset-Domains erweitert ### -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.githubusercontent.com; script-src 'self'" />
+    <title>Vibecraft Launcher</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h1 class="title">Vibecraft</h1>
+        <nav id="release-list" class="release-list">
+          <div class="loader-container">
+            <div class="loader"></div>
+          </div>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <div id="release-details" class="release-details"></div>
+        <div class="play-button-container">
+          <button id="play-button" class="play-button">Play</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="../node_modules/showdown/dist/showdown.min.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>

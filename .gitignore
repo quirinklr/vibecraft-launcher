@@ -1,0 +1,51 @@
+# # # Node.js & npm # # #
+# Log-Dateien
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Verzeichnis für Abhängigkeiten
+# Dies ist das Wichtigste, was ignoriert werden muss.
+node_modules/
+
+# Lockfiles (je nach Präferenz, aber es wird empfohlen, sie beizubehalten)
+package-lock.json
+yarn.lock
+
+# # # Electron # # #
+# Verzeichnisse für Build- und Pack-Artefakte
+dist/
+out/
+release/
+*.exe
+*.zip
+*.dmg
+*.AppImage
+
+# Verzeichnis für Benutzerdaten von Electron (Laufzeit, nicht Teil des Projekts)
+# Dies wird bereits systemweit unter %APPDATA% gespeichert und ist nicht im Repo.
+
+# # # Betriebssystem-Dateien # # #
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.[Dd]esktop.ini
+
+# # # IDE- & Editor-Konfigurationen # # #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
